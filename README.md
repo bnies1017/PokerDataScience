@@ -6,3 +6,4 @@ This repository contains various scripts and notebooks that explore poker game d
 - **[Section 01: Data Generation](notebooks/01_data_generation.ipynb)**: Notebook for generating synthetic poker game data.
 - **[Section 02: Pre-Flop Equity](notebooks/02_preflop_equity.ipynb)**: Notebook for estimating pre-flop equity using Monte Carlo simulations.
 - **[Section 03: Flop Equity](notebooks/03_flop_equity.ipynb)**: Notebook for estimating flop equity using Monte Carlo simulations.
+- **[Section 04: Turn and River Equity](notebooks/04_turn_and_river_equity.ipynb)**: Notebook for estimating turn and river equity using Monte Carlo simulations.
