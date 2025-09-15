@@ -118,15 +118,12 @@ def straight_potential(hole, board):
 
 def overcards(hole, board):
     """
-    Count the number of hole cards that are higher than the highest card on the board.
-    :param hole: List of deuces card integers representing the hole cards.
-    :param board: List of deuces card integers representing the board cards.
-    :return: Integer representing the number of overcards on the board.
+    Count how many hole cards are higher than the highest card on the board.
     """
     board_ranks = [Card.get_rank_int(card) for card in board]
     hole_ranks = [Card.get_rank_int(card) for card in hole]
-    max_hole_rank = max(hole_ranks)
-    return sum(1 for rank in board_ranks if rank > max_hole_rank)
+    max_board_rank = max(board_ranks) if board_ranks else -1
+    return sum(1 for rank in hole_ranks if rank > max_board_rank)
 
 def board_texture(board):
     """
@@ -166,3 +163,4 @@ def board_connectivity(board):
         return 'Medium'
     else:
         return 'Low'
+
