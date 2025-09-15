@@ -32,14 +32,14 @@ def wins(showdown_order, players):
 
 evaluator = Evaluator()
 
-def hand_classification(hole, board):
+def hand_classification(hand_eval):
     """
     Get the hand classification (e.g., Pair, High Card, etc.) for given hole and board cards.
-    :param hole: List of deuces card integers representing the hole cards.
-    :param board: List of deuces card integers representing the board cards.
+    :param hand_eval: Integer representing the hand evaluation from deuces Evaluator.
+    1 <= hand_eval <= 7462
     :return: Integer representing the hand classification.
     """
-    return evaluator.get_rank_class(evaluator.evaluate(hole, board))
+    return evaluator.get_rank_class(hand_eval)
 
 def is_pocket_pair(hole):
     """
