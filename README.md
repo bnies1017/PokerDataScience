@@ -9,3 +9,9 @@ This repository contains various scripts and notebooks that aim to explore poker
 - **[Section 04: Turn and River Equity](notebooks/04_turn_river_equity.ipynb)**: Notebook for estimating turn and river equity using Monte Carlo simulations.
 
 [Pre-flop Equity Matrices](https://public.tableau.com/shared/5HX3QMJ2D?:display_count=n&:origin=viz_share_link)
+
+# My Tableau Embed
+
+<iframe src="https://public.tableau.com/shared/5HX3QMJ2D?:display_count=n&:origin=viz_share_link" 
+        width="800" height="600"></iframe>
+
