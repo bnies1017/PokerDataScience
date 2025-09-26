@@ -28,6 +28,8 @@ env.bak/
 venv.bak/
 
 # Data Files
+*.twbr
+*.twb
 *.csv
 *.tsv
 *.xlsx
