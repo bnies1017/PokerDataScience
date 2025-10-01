@@ -116,14 +116,18 @@ def straight_potential(hole, board):
     else:
         return 'None'
 
+
 def overcards(hole, board):
     """
     Count how many hole cards are higher than the highest card on the board.
+    Assumes hole and board are lists of Card objects or strings compatible with Card.get_rank_int().
     """
-    board_ranks = [Card.get_rank_int(card) for card in board]
-    hole_ranks = [Card.get_rank_int(card) for card in hole]
-    max_board_rank = max(board_ranks) if board_ranks else -1
-    return sum(1 for rank in hole_ranks if rank > max_board_rank)
+    if not board:  # edge case: no board yet
+        return len(hole)
+
+    max_board_rank = max(Card.get_rank_int(card) for card in board)
+    return sum(1 for card in hole if Card.get_rank_int(card) > max_board_rank)
+
 
 def board_texture(board):
     """
