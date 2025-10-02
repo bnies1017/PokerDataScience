@@ -76,45 +76,42 @@ def flush_potential(hole, board):
     else:
         return 'None'
 
+
+from deuces import Card
+from itertools import combinations
+
+
 def straight_potential(hole, board):
-    """
-    Determine the straight potential given hole and board cards.
-    :param hole: List of deuces card integers representing the hole cards.
-    :param board: List of deuces card integers representing the board cards.
-    :return: String indicating straight potential: 'Complete', 'Open', 'Gut-shot', 'Backdoor', or 'None'.
-    """
-    ranks = [Card.get_rank_int(card) for card in hole + board]
+    all_cards = hole + board
+    ranks = [Card.get_rank_int(c) for c in all_cards]
+
+    # Add Ace as low (-1)
+    if 12 in ranks:
+        ranks.append(-1)
+
     unique_ranks = sorted(set(ranks))
-    # Add Ace as both high (12) and low (-1) for straight calculations
-    if 12 in unique_ranks:
-        unique_ranks.append(-1)
-    unique_ranks = sorted(set(unique_ranks))
-    max_seq_len = 1
-    current_seq_len = 1
-    gaps = 0
-    for i in range(1, len(unique_ranks)):
-        if unique_ranks[i] == unique_ranks[i-1] + 1:
-            current_seq_len += 1
-        elif unique_ranks[i] == unique_ranks[i-1] + 2:
-            gaps += 1
-            current_seq_len += 1
-        else:
-            if current_seq_len > max_seq_len:
-                max_seq_len = current_seq_len
-            current_seq_len = 1
-            gaps = 0
-    if current_seq_len > max_seq_len:
-        max_seq_len = current_seq_len
-    if max_seq_len >= 5:
-        return 'Complete'
-    elif max_seq_len == 4:
-        return 'Open'
-    elif max_seq_len == 3:
-        return 'Gut-shot'
-    elif max_seq_len == 2:
-        return 'Backdoor'
-    else:
-        return 'None'
+
+    # Check for Complete Straight
+    for combo in combinations(unique_ranks, 5):
+        sorted_combo = sorted(combo)
+        if sorted_combo[-1] - sorted_combo[0] == 4:
+            return 'Complete'
+
+    # Check for 4-card straight draw (Open-ended or Gutshot)
+    for combo in combinations(unique_ranks, 4):
+        sorted_combo = sorted(combo)
+        if sorted_combo[-1] - sorted_combo[0] == 3:
+            return 'Open'
+        elif sorted_combo[-1] - sorted_combo[0] == 4:
+            return 'Gut-shot'
+
+    # Check for Backdoor (3-card sequences)
+    for combo in combinations(unique_ranks, 3):
+        sorted_combo = sorted(combo)
+        if sorted_combo[-1] - sorted_combo[0] <= 4:
+            return 'Backdoor'
+
+    return 'None'
 
 
 def overcards(hole, board):
@@ -129,7 +126,7 @@ def overcards(hole, board):
     return sum(1 for card in hole if Card.get_rank_int(card) > max_board_rank)
 
 
-def board_texture(board):
+def suit_texture(board):
     """
     Determine the board texture based on the number of unique suits on the board.
     :param board: List of deuces card integers representing the board cards.
@@ -137,6 +134,15 @@ def board_texture(board):
     """
     suits = [Card.get_suit_int(card) for card in board]
     return len(set(suits))
+
+def rank_texture(board):
+    """
+    Determine the board texture based on the number of unique ranks on the board.
+    :param board: List of deuces card integers representing the board cards.
+    :return: Integer representing the number of unique ranks on the board.
+    """
+    ranks = [Card.get_rank_int(card) for card in board]
+    return len(set(ranks))
 
 def board_connectivity(board):
     """
