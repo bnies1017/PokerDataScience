@@ -3,3 +3,5 @@ pandas
 deuces
 matplotlib
 seaborn
+scipy
+altair
