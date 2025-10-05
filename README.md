@@ -69,5 +69,5 @@ $$
 In result, a heads-up Pre-flop equity matrix can be visualized, providing insight into which holes have the best winning 
 odds:
 
-![TODO add vis]()
+![Preflop Equity Matrix](./figures/Preflop%20Equity.png)
 
