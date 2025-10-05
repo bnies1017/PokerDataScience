@@ -2,14 +2,23 @@
 A repository dedicated to the analysis and modeling of poker game data using data science techniques.
 
 ## Overview ##
-This repository contains various scripts and notebooks that aim to explore poker game data, perform statistical analysis, and build predictive models. The goal is to gain insights into player behavior, game dynamics, and strategies that can improve performance in poker games. So far, the notebooks calculate equity estimates based on hand features over Monte-Carlo data.
+This repository contains various scripts and notebooks that aim to explore poker game data, perform statistical 
+analysis, and build predictive models. The goal is to gain insights into player behavior, game dynamics, and strategies 
+that can improve performance in poker games. So far, the notebooks calculate equity estimates based on hand features
+over Monte-Carlo data.
 
-## Notebooks ##
-- **[Section 01: Hand Simulation](notebooks/01_hand_simulation.ipynb)**: Generates synthetic poker game data.
-- **[Section 02: Hand Frequency Distribution](notebooks/02_hand_freq_distribution.ipynb)**: Approximates hand likelihood using hand frequencies and demonstrates their distributons.
-- **[Section 03: Pre-Flop Equity](notebooks/03_preflop_equity.ipynb)**: Estimates Pre-flop equity using Monte Carlo simulation.
-- **[Section 04: Flop Equity](notebooks/04_flop_equity.ipynb)**: Estimates Flop equity using Monte Carlo simulation.
-- **[Section 05: Turn and River Equity](notebooks/05_turn_river_equity.ipynb)**: Estimates Turn and River equity using Monte Carlo simulation.
+## [Section 01: Hand Simulation](./notebooks/01_hand_simulation.ipynb) ##
 
-## Procedure ##
-1. Simulate 100,000 hands of poker data using the `deuces` library. 
+First, 100,000 hands of Texas Holdem poker are simulated, each with 9 players. For each hand, two hole cards are dealt 
+to each player, as well as 5 community cards. The strength of each player's hand at each street is measured using a 
+`deuces.evaluator` object. Then, each player is given a "showdown order", which represents the ranking of that player's 
+hand among the 9 total hands per row. 
+
+Secondly, the wide-form data is converted to a long-form, where each row corresponds to an individual player. This 
+method of conversion preserved the relationship between different players and their showdown orders from the wide 
+dataframe. Since the wide dataset had 100,000 hands and 9 players, the resulting long data should have 900,000 rows,
+which represent each player individually over every hand. The use of the `deuces` library ensures efficient hand 
+evaluation, making this dataset a valuable resource for estimating equity, for example. 
+The `showdown_order_` feature of the long-form dataset will be essential in estimating hand equity.
+
+## [Section 02: Hand Frequency Distribution](./notebooks/02_hand_freq_distribution.ipynb) ##
