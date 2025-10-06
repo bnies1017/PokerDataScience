@@ -49,22 +49,20 @@ mathematics.
 When trying to determine how many hands we need to consider for $P$ players, we can think of it as choosing $P-1$ 
 opponents from the 8 total opponents (since one player is the target). Thus, the total number of hands to consider for 
 $P$ players is given by:
-$$
-\text{total hands} = \binom{8}{P-1}
-$$
+
+ total hands = $\binom{8}{P-1}$
+ 
 When trying to determine how many times a hand would win at showdown given its showdown order $O$ and number of players 
 $P$, there are $9-O$ players with worse showdown order (9 total players - O players with less than or equal showdown 
 order). We need to choose $P-1$ opponents from these $9-O$ players. Thus, the number of times a hand would win at 
 showdown is given by:
-$$
-\text{wins} = \binom{9 - O}{P-1}
-$$
+
+wins = $\binom{9 - O}{P-1}$
 
 When the resulting dataframe is grouped by Pre-flop features, and the total wins and hands are aggregated by summation, 
 the equity estimation can be calculated given a fixed set of features as:
-$$
-\text{equity} = \frac{\text{sum(wins)}}{\text{sum(total hands)}} 
-$$
+
+equity = $\frac{\text{sum(wins)}}{\text{sum(total hands)}} $
 
 In result, a heads-up Pre-flop equity matrix can be visualized, providing insight into which holes have the best winning 
 odds:
