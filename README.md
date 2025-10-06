@@ -27,7 +27,7 @@ Now that the long-form dataset has been generated, its validity can be verifying
 of different types of hands with their known likelihoods. Subsequently, the RMSE between frequencies and likelihoods can
 be used as an approximation for accuracy. The following visualization demonstrates the distribution of frequencies:
 
-![Hand Frequency Distribution](./figures/Hand%20Freq%20Distribution.png)
+![Hand Frequency Distribution](./figures/hand_freq_dist.png)
 
  In conclusion, the RMSE between frequencies and likelihoods was quite low, which is a good sanity check before equity 
  estimation.
@@ -69,7 +69,7 @@ $$
 In result, a heads-up Pre-flop equity matrix can be visualized, providing insight into which holes have the best winning 
 odds:
 
-![Preflop Equity Matrix](./figures/Preflop%20Equity.png)
+![Preflop Equity Matrix](./figures/preflop_equity_matrix.png)
 
 ## [Section 04: Flop Equity](./notebooks/04_flop_equity.ipynb) ##
 
@@ -89,7 +89,28 @@ dataframe is grouped in a similar way to get the equity for a known set of featu
 \text{equity} = \frac{\text{sum(wins)}}{\text{sum(total hands)}} 
 $ for any fixed set of features.
 
-The following visual demonstrates equity as a function of "Hand Class" and "Players":
+The following visual demonstrates Flop equity with fixed "Hand Class" and "Players":
+
+![Flop Equity Matrix](./figures/flop_equity_matrix.png)
+
+The following visual demonstrates Flop equity with fixed "Flush Potential" and "Suit Texture":
+
+![Flop Flush Draw](./figures/flop_flush_draw.png)
+
+## [Section 05: Turn & River Equity](./notebooks/05_turn_river_equity.ipynb) ##
+
+In a similar way to Section 04, features are engineered for the Turn and the River in order to group similar hands and 
+aggregate for equity calculations. River features are not concerned with some features such as "Flush Potential" because
+the hand will no longer see new cards. 
+
+The following visualization demonstrates Turn equity with fixed "Hand Class" and "Players":
+
+![Turn Equity Matrix](./figures/turn_equity_matrix.png)
+
+The following visualization demonstrates River equity with fixed "Hand Class" and "Players":
+
+![River Equity Matrix](./figures/river_equity_matrix.png)
+
 
 
 
