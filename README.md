@@ -82,9 +82,7 @@ and flop cards. These features include:
 - Board Connectivity: Number of cards required to complete a straight on the board.
 
 After engineering features, multiplying rows by number of players, 2-9, and calculating total wins and hands, the 
-dataframe is grouped in a similar way to get the equity for a known set of features. Now, $
-\text{equity} = \frac{\text{sum(wins)}}{\text{sum(total hands)}} 
-$ for any fixed set of features.
+dataframe is grouped in a similar way to get the equity for a known set of features. Now, $\text{equity} = \frac{\text{sum(wins)}}{\text{sum(total hands)}}$ for any fixed set of features.
 
 The following visual demonstrates Flop equity with fixed "Hand Class" and "Players":
 
