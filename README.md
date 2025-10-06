@@ -71,3 +71,25 @@ odds:
 
 ![Preflop Equity Matrix](./figures/Preflop%20Equity.png)
 
+## [Section 04: Flop Equity](./notebooks/04_flop_equity.ipynb) ##
+
+The Flop equity for each player's hand is then estimated using a various engineered features derived from the hole cards
+and flop cards. These features include:
+- Hand Classification: Pair, High Card, etc.
+- Pocket Pair: Boolean indicating if the hole cards are a pocket pair.
+- Suited: Boolean indicating if the hole cards are suited.
+- Flush Potential: Complete, Open, Backdoor, or None.
+- Straight Potential: Complete, Open, Gut-shot, Backdoor, or None.
+- Overcards: Number of hole cards that are higher than the highest card on the flop.
+- Board Texture: Number of unique suits/ranks on the board.
+- Board Connectivity: Number of cards required to complete a straight on the board.
+
+After engineering features, multiplying rows by number of players, 2-9, and calculating total wins and hands, the 
+dataframe is grouped in a similar way to get the equity for a known set of features. Now, $
+\text{equity} = \frac{\text{sum(wins)}}{\text{sum(total hands)}} 
+$ for any fixed set of features.
+
+The following visual demonstrates equity as a function of "Hand Class" and "Players":
+
+
+
