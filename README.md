@@ -108,6 +108,8 @@ The following visualization demonstrates River equity with fixed "Hand Class" an
 
 ![River Equity Matrix](./figures/river_equity_matrix.png)
 
+## Results ##
 
+Each heatmap generated using equity estimates show reasonable patterns. The datasets which generated the heatmaps are likely valuable resources to gain insights into player behavior, game dynamics, and strategies that can improve performance in poker games.
 
 
