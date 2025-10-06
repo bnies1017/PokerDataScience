@@ -4,4 +4,3 @@ deuces
 matplotlib
 seaborn
 scipy
-altair
