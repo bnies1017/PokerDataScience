@@ -1,5 +1,4 @@
 # Texas Holdem Monte Carlo #
-A repository dedicated to generating poker game data using Monte Carlo style simulation.
 
 ## Overview ##
 This repository contains various scripts and notebooks that aim to simulate poker game data and estimate equity in a 
