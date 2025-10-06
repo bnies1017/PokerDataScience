@@ -108,6 +108,8 @@ The following visualization demonstrates River equity with fixed "Hand Class" an
 
 ## Results ##
 
-Each heatmap generated using equity estimates show reasonable patterns. The datasets which generated the heatmaps are likely valuable resources to gain insights into player behavior, game dynamics, and strategies that can improve performance in poker games. The `.csv` files are hosted online [here](https://www.kaggle.com/datasets/benjaminniesmertelny/texas-holdem-monte-carlo-data).
+Each heatmap generated using equity estimates show reasonable patterns. The datasets which generated the heatmaps are 
+likely valuable resources to gain insights into player behavior, game dynamics, and strategies that can improve 
+performance in poker games. The `.csv` files are hosted online [here](https://www.kaggle.com/datasets/benjaminniesmertelny/texas-holdem-monte-carlo-data).
 
 
