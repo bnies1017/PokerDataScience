@@ -112,4 +112,6 @@ Each heatmap generated using equity estimates show reasonable patterns. The data
 likely valuable resources to gain insights into player behavior, game dynamics, and strategies that can improve 
 performance in poker games. The `.csv` files are hosted online [here](https://www.kaggle.com/datasets/benjaminniesmertelny/texas-holdem-monte-carlo-data).
 
+## Next Steps ##
 
+Finally, this project concludes by producing a few useful datasets. Each of these datasets can be used to give a reasonable estimate of equity for any hand at any stage of the game. Next steps for this project include developing a naive strategy that uses these equity estimations to determine an ideal bet amount. Furthermore, a statistical model developed in order to detect patterns in opponent strategies paired with the equity estimation strategy could prove to be a highly successful model for AI poker playing or for developing a virtual practice tool. 
